@@ -1,0 +1,28 @@
+From 957eb6c2e6ca568bafb370cd2f7cf9ae66788021 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?S=C3=A9bastien=20Barth=C3=A9l=C3=A9my?=
+ <sbarthelemy@aldebaran-robotics.com>
+Date: Fri, 29 Sep 2017 19:18:16 +0200
+Subject: [PATCH] fix console_bridge-config.cmake location
+
+---
+ CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8d3f920..0057e19 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -45,8 +45,8 @@ install(DIRECTORY include/
+ 
+ set(PKG_NAME ${PROJECT_NAME})
+ set(PKG_LIBRARIES ${PROJECT_NAME})
+-set(cmake_conf_file "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}-config.cmake")
+-configure_file("${cmake_conf_file}.in" "${CMAKE_BINARY_DIR}/${cmake_conf_file}" @ONLY)
++set(cmake_conf_file "${PROJECT_NAME}-config.cmake")
++configure_file("${CMAKE_CURRENT_SOURCE_DIR}/${cmake_conf_file}.in" "${CMAKE_BINARY_DIR}/${cmake_conf_file}" @ONLY)
+ install(FILES ${CMAKE_BINARY_DIR}/${cmake_conf_file}
+   DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/cmake/ COMPONENT cmake)
+ 
+-- 
+1.9.1
+

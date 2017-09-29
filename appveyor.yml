@@ -1,0 +1,10 @@
+install:
+- cmd: echo "Downloading conan..."
+- cmd: set PATH=%PATH%;%PYTHON%/Scripts/
+- cmd: pip.exe install conan
+- cmd: conan user # Create the conan data directory
+- cmd: conan --version
+
+build_script:
+- cmd: cd %APPVEYOR_BUILD_FOLDER%/ros/console_bridge
+- cmd: conan create sbarthelemy/testing
