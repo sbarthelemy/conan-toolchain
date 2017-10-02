@@ -4,7 +4,14 @@ install:
 - cmd: pip.exe install conan
 - cmd: conan user # Create the conan data directory
 - cmd: conan --version
+- cmd: pip.exe install empy catkin_pkg
 
 build_script:
 - cmd: cd %APPVEYOR_BUILD_FOLDER%/ros/console_bridge
+- cmd: conan create sbarthelemy/testing
+- cmd: cd %APPVEYOR_BUILD_FOLDER%/ros/catkin
+- cmd: conan create sbarthelemy/testing
+- cmd: cd %APPVEYOR_BUILD_FOLDER%/ros/cpp_common
+- cmd: conan create sbarthelemy/testing
+- cmd: cd %APPVEYOR_BUILD_FOLDER%/ros/rostime
 - cmd: conan create sbarthelemy/testing
